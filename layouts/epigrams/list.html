@@ -27,9 +27,17 @@
 		</span>
 	      </p>
 	      <p class="card-footer-item">
-		<span>
-		  Share on <a href="#">Facebook</a>
-		</span>
+                <!-- Your share button code -->
+                <span class="fb-share-button"
+                     data-href="{{ .Permalink }}"
+                     data-layout="button_count"
+                     data-size="small"
+                     data-mobile-iframe="false">
+                  <a class="fb-xfbml-parse-ignore"
+                     target="_blank"
+                     href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}&amp;src=sdkpreparse">Share</a>
+                </span>
+                
 	      </p>
 	    </footer>
 	  </div> <!-- card -->

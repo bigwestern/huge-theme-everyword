@@ -1,6 +1,7 @@
 +++
 title = "{{ replace .TranslationBaseName "-" " " | title }}"
 date = {{ .Date }}
-draft = true
+categories = ["epigrams"]
+type = "epigram"
 +++
 

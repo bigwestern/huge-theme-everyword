@@ -1,27 +1,45 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+
 <section class="section">
   <div class="container">
     <nav class="navbar">
       <div class="navbar-brand">
+        <div class="columns">
 
-	<a class="navbar-item" href="{{ .Site.BaseURL }}/">
-	  <span class="title">{{ .Site.Title }}</span>
-	</a>
+          <div class="column is-half">
+	    <a class="navbar-item" href="{{ .Site.BaseURL }}/">
+	      <h1 class="title">{{ .Site.Title }}</h1>
+	    </a>
+            <h2 class="subtitle is-pulled-right">{{ .Site.Params.tagline }}</h2>
+          </div>
 
-	<a class="navbar-item" href="{{ .Site.BaseURL }}/epigrams">
-	  Articles
-	</a>
-
-	<a class="navbar-item" href="{{ .Site.BaseURL }}/epigrams">
-	  Epigrams
-	</a>
-	
-	{{ range .Site.Params.social }}
-	<a class="navbar-item is-hidden-desktop" href="{{ .url }}">
-          <span class="icon">
-            <i class="fa {{ .fa_icon }}"></i>
-          </span>
-	</a>
-	{{ end }}
+          {{ range .Site.Params.navlinks }}          
+          <div class="column">          
+            <a class="navbar-item" href="{{ .Site.BaseURL }}{{ .url }}">
+	      {{ .title }}
+	    </a>
+          </div>
+          {{end}}
+          
+          <div class="column is-3">
+	    {{ range .Site.Params.social }}
+	    <a class="navbar-item" href="{{ .url }}">
+              <span class="icon">
+                <i class="fa {{ .fa_icon }}"></i>
+              </span>
+	    </a>
+	    {{ end }}
+          </div>
+          
+        </div> <!-- columns -->
 	
       </div>
     </nav>

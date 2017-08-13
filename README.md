@@ -1,6 +1,7 @@
-# Hemingway2
+# Everyword
 
-Hemingway2 is a really minimal blog theme for hugo.
+The intention of this theme is to support a new content type called
+epigrams.  The underlying css framework is bulma.
 
 ## Getting Started
 
@@ -14,8 +15,6 @@ git clone https://github.com/beli3ver/hemingway2.git
 
 ## Configuration
 
-Take a look in the [exampleSite](https://github.com/beli3ver/hemingway2/tree/master/exampleSite) folder.
-
 This directory contains an example config file and the content for the demo.
 It serves as an example setup for your documentation.
 
@@ -24,13 +23,13 @@ Copy the `config.toml` in the root directory of your website. Overwrite the exis
 __[config.toml](https://github.com/beli3ver/hemingway2/blob/master/exampleSite/config.toml)__:
 
 ```toml
-baseurl = "https://example.com"
-languageCode = "en"
-title = "Hemingway2"
-theme = "hemingway2"
-copyright = "&copy; <a href=\"https://github.com/beli3ver\">Malte Kiefer</a> 2016"
-disqusShortname = "shortname"
-googleAnalytics = ""
+languageCode = "en-us"
+title = "Every word is a struggle"
+baseurl = "http://studiogaudi.com/albert/"
+theme = "everyword"
+copyright = "&copy; <a href=\"https://github.com/beli3ver\">Albert Hall</a> 2017"
+# disqusShortname = "shortname"
+# googleAnalytics = ""
 description = "Your personal description"
 keywords = ["keyword1", "keyword2"]
 
@@ -39,10 +38,15 @@ tag = "tags"
 category = "categories"
 
 [params]
+tagline = "by Albert Hall"
 
-[params.highlight]
-style = "github"
-languages = ["go", "dockerfile"]
+[[params.navlinks]]
+url = "/about/"
+title = "About"
+
+[[params.navlinks]]
+url = "/posts/"
+title = "Posts"
 
 [[params.social]]
 url = "https://github.com/beli3ver"
@@ -65,18 +69,10 @@ url = "/index.xml"
 fa_icon = "fa-rss"
 ```
 
-## Build
+## Install and build theme
 
 ```
-hugo server
+npm install --global gulp-cli
+npm install
+gulp
 ```
-
-You can go to localhost:1313 and this theme should be visible.
-
-## License
-
-Hemingway2 is licensed under the [MIT License](LICENSE.md).
-
-## Author
-
-[Malte Kiefer](https://github.com/beli3ver)
