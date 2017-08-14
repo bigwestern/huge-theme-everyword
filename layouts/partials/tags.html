@@ -1,5 +1,5 @@
-<div class="tags">
+<span class="tags">
     {{ range . }}
-        <a class="button is-link" href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a>
+        <a class="button is-small is-link" href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a>
     {{ end }}
-</div>
+</span>

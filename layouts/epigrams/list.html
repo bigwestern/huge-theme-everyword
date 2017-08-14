@@ -22,10 +22,13 @@
 	    </div>
 	    <footer class="card-footer">
 	      <p class="card-footer-item">
-		<span>
-		  {{ .Date.Format "January 2, 2006" }}
-		</span>
+		<a href="{{ .Permalink }}">{{ .Date.Format "2 Aug 06" }}</a>
 	      </p>
+              <p class="card-footer-item">
+                <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
+                  Tweet
+                </a>
+              </p>
 	      <p class="card-footer-item">
                 <!-- Your share button code -->
                 <span class="fb-share-button"

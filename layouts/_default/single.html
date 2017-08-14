@@ -3,14 +3,21 @@
   {{ partial "nav" . }}
   <section class="section">
     <div class="container">
-      <h2 class="subtitle is-6">{{ .Date.Format "January 2, 2006" }}</h2>
+      <h2 class="subtitle is-6"></h2>
       <h1 class="title">{{ .Title }}</h1>
-      {{ if .Params.tags }}
-      {{ partial "tags" .Params.tags }}
-      {{ end }}
       <div class="content">
         {{ .Content }}
       </div>
+
+      <div class="columns">
+        <div class="column is-11 is-offset-1">
+          {{ if .Params.tags }}
+          {{ partial "tags" .Params.tags }}
+          {{ end }}
+          <span class="button is-small">Posted on {{ .Date.Format "2 July 2006" }}</a>
+        </div>
+      </div>
+      
     </div>
   </section>
   {{ partial "disqus" . }}
