@@ -1,13 +1,22 @@
 <!-- facebook boilerplate -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10";
-  fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '109954266367352',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+    FB.AppEvents.logPageView();
+  };
 
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 
 <!-- twitter boilerplate -->
 <script>window.twttr = (function(d, s, id) {
@@ -27,40 +36,44 @@
   return t;
 }(document, "script", "twitter-wjs"));</script>
 
-<section class="section">
+
+<script>
+const toggleBurger = () => {
+  let burgerIcon = document.getElementById('burger');
+  let dropMenu = document.getElementById('navMenu');
+  burgerIcon.classList.toggle('is-active');
+  dropMenu.classList.toggle('is-active');
+};  
+</script>
+
+<div class="section">
   <div class="container">
+    
     <nav class="navbar">
+
       <div class="navbar-brand">
-        <div class="columns">
+	<a class="navbar-item" href="{{ .Site.BaseURL }}">
+	  <span>{{ .Site.Title }}</span>
+	</a>
 
-          <div class="column is-half">
-	    <a class="navbar-item" href="{{ .Site.BaseURL }}/">
-	      <h1 class="title">{{ .Site.Title }}</h1>
-	    </a>
-            <h2 class="subtitle is-pulled-right">{{ .Site.Params.tagline }}</h2>
-          </div>
+        <div class="navbar-burger" id="burger" onclick="toggleBurger()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        
+      </div> <!-- navbar-brand -->
 
+      <div id="navMenu" class="navbar-menu">
+        <div class="navbar-start">
           {{ range .Site.Params.navlinks }}          
-          <div class="column">          
-            <a class="navbar-item" href="{{ .Site.BaseURL }}{{ .url }}">
-	      {{ .title }}
-	    </a>
-          </div>
-          {{end}}
-          
-          <div class="column is-3">
-	    {{ range .Site.Params.social }}
-	    <a class="navbar-item" href="{{ .url }}">
-              <span class="icon">
-                <i class="fa {{ .fa_icon }}"></i>
-              </span>
-	    </a>
-	    {{ end }}
-          </div>
-          
-        </div> <!-- columns -->
-	
-      </div>
+          <a class="navbar-item{{ if eq (lower .title) (lower $.Title) }} is-active{{ end }}" href="{{ $.Site.BaseURL }}{{ .url }}">
+              {{ .title }}
+          </a>
+          {{end}}                
+        </div> 
+      </div>      
     </nav>
-  </div>
-</section>
+
+  </div> <!-- container -->
+</div> <!-- section -->
