@@ -1,6 +1,7 @@
 <body>
   {{ partial "header" . }}
   {{ partial "nav" . }}
+  
   <section class="section">
     <div class="container">
       <h2 class="subtitle is-6"></h2>
@@ -14,7 +15,7 @@
           {{ if .Params.tags }}
           {{ partial "tags" .Params.tags }}
           {{ end }}
-          <span class="button is-small">Posted on {{ .Date.Format "2 July 2006" }}</a>
+          <span class="button is-small">Posted on {{ .Date.Format "2 January 2006" }}</a>
         </div>
       </div>
       
