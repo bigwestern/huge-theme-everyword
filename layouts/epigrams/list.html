@@ -25,7 +25,7 @@
 		<a href="{{ .Permalink }}">{{ .Date.Format "2 Aug 06" }}</a>
 	      </p>
               <p class="card-footer-item">
-                <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
+                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Summary | plainify | safeHTML }}&via=ahoratiohall">
                   Tweet
                 </a>
               </p>
